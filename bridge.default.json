@@ -1,0 +1,52 @@
+{
+  // Only mirror these Chroma apps. Empty list = mirror any game that uses Razer Chroma.
+  // Example: ["Overwatch.exe"]
+  "apps": ["Overwatch.exe"],
+
+  // Never mirror these (Razer's own apps can show up as Chroma apps).
+  "ignoreApps": ["RazerAppEngine.exe", "Razer Synapse 3.exe", "RazerCentral.exe"],
+
+  // Use the tray menu "Show test pattern": the ESC/F-key row must be RED.
+  // If it shows BLUE, set this to true.
+  "swapRedBlue": false,
+
+  // 0.0 - 1.0
+  "brightness": 1.0,
+
+  "maxFps": 60,
+
+  // "hidpp":           per-key directly over Logitech HID++ (recommended). Keep Windows Dynamic Lighting ON with
+  //                    ChromaBridge on top of "Background light control": while a game sends colors ChromaBridge
+  //                    takes control (Windows' effect pauses), afterwards your normal lighting comes back.
+  // "dynamicLighting": per-key through Windows Dynamic Lighting (run tools\package\Install-ChromaBridge.ps1 once,
+  //                    then pick ChromaBridge under Settings > Personalization > Dynamic Lighting > Background light control)
+  // "ghub":            Logitech LED SDK through G HUB (on the G915 X only a whole-keyboard color works)
+  // The tray menu "Output" switches between them.
+  "output": "hidpp",
+
+  // Updates per second (5-30). The G915 X silently drops updates that come closer than ~33 ms,
+  // so stay below 30. Lower = steadier, higher = more fluid.
+  "hidppFps": 25,
+  "dynamicLightingFps": 25,
+
+  // Hand the keyboard back to your normal lighting when the game sends no colors for this long (alt-tab, game closed)
+  "releaseAfterSeconds": 3,
+  // How keys are sent to the keyboard:
+  //  "budget":      at most "lampsPerUpdate" keys per update, the ones furthest from their correct color first
+  //                 (flickering -> lower lampsPerUpdate, e.g. 16; sluggish animations -> raise it, e.g. 32)
+  //  "changedKeys": every changed key, plus a full refresh once per second (the earlier version)
+  "dynamicLightingStrategy": "changedKeys",
+  "lampsPerUpdate": 24,
+
+  // Only for "output": "ghub". "perKey" or "bitmap".
+  "keyboardMode": "perKey",
+
+  // German/ISO keyboard: '#' next to Enter, '<>' next to left Shift
+  "isoLayout": true,
+
+  // Mirror the Razer mouse logo color onto your Logitech mouse (G502 X PLUS).
+  "mouse": true,
+
+  // Mirror Razer macro keys M1-M5 -> G1-G5 and the Razer logo -> G logo.
+  "gKeysAndLogo": true
+}
