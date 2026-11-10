@@ -61,3 +61,6 @@ The default `hidpp` and `dynamicLighting` outputs need nothing extra. The `ghub`
 
 ## Disclaimer
 GameLightSync is an independent, unofficial project. It is not affiliated with, endorsed by or sponsored by Razer Inc., Logitech International S.A. or Blizzard Entertainment. Razer, Razer Chroma and Synapse are trademarks of Razer Inc.; Logitech, Logitech G, G HUB and LIGHTSYNC are trademarks of Logitech; Overwatch is a trademark of Blizzard Entertainment. All other trademarks belong to their owners. Names are used only to describe compatibility. Use at your own risk; this tool talks to the lighting services of third-party software and hardware.
+
+## Building the installer
+Needs [Inno Setup 6](https://jrsoftware.org/isinfo.php). `dotnet publish GameLightSync.csproj -c Release -o publish`, then `ISCC.exe installer\GameLightSync.iss`. Output: `installer\Output\GameLightSync-Setup-<version>.exe`. The installer is per-user (`%LOCALAPPDATA%\Programs\GameLightSync`), checks for the .NET 8 Desktop Runtime, and never overwrites your `bridge.json`.

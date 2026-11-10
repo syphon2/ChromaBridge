@@ -6,3 +6,5 @@ out/
 *.cer
 *.log
 lib/*.dll
+installer/Output/
+publish/
