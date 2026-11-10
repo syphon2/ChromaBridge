@@ -58,3 +58,6 @@ The default `hidpp` and `dynamicLighting` outputs need nothing extra. The `ghub`
 
 ## Windows Dynamic Lighting package
 `tools\package\Build-Package.ps1` builds and signs the sparse package with a fresh local self-signed certificate and writes `ChromaBridge.cer`; run `Install-ChromaBridge.ps1` afterwards.
+
+## Disclaimer
+ChromaBridge is an independent, unofficial project. It is not affiliated with, endorsed by or sponsored by Razer Inc., Logitech International S.A. or Blizzard Entertainment. Razer, Razer Chroma and Synapse are trademarks of Razer Inc.; Logitech, Logitech G, G HUB and LIGHTSYNC are trademarks of Logitech; Overwatch is a trademark of Blizzard Entertainment. All other trademarks belong to their owners. Names are used only to describe compatibility. Use at your own risk; this tool talks to the lighting services of third-party software and hardware.
