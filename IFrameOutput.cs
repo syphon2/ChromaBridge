@@ -1,6 +1,6 @@
 using RazerSdkReader.Structures;
 
-namespace ChromaBridge;
+namespace GameLightSync;
 
 /// <summary>A per-key keyboard output that is fed complete Razer frames at a paced rate.</summary>
 internal interface IFrameOutput

@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-namespace ChromaBridge;
+namespace GameLightSync;
 
 /// <summary>P/Invoke surface of the Logitech LED SDK 9.00 (LogitechLedEnginesWrapper.dll), which talks to G HUB.</summary>
 internal static class LogitechLed

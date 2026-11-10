@@ -1,7 +1,7 @@
 using RazerSdkReader;
 using RazerSdkReader.Structures;
 
-namespace ChromaBridge;
+namespace GameLightSync;
 
 /// <summary>
 /// Reads what games send to the Razer Chroma SDK (via the Chroma SDK service's shared memory, no injection)
@@ -54,7 +54,7 @@ internal sealed class Bridge : IDisposable
 
     /// <summary>
     /// Manual repair: put the keyboard back into the Logitech Dynamic Lighting service's mode, then take and return
-    /// Windows Dynamic Lighting control so Windows re-applies its effect. Outside games ChromaBridge never touches
+    /// Windows Dynamic Lighting control so Windows re-applies its effect. Outside games GameLightSync never touches
     /// the keyboard by itself.
     /// </summary>
     private void RestoreNormalLighting(BridgeConfig config)
@@ -110,7 +110,7 @@ internal sealed class Bridge : IDisposable
     public Bridge(BridgeConfig config)
     {
         _config = config;
-        _worker = new Thread(WorkerLoop) { IsBackground = true, Name = "ChromaBridge worker" };
+        _worker = new Thread(WorkerLoop) { IsBackground = true, Name = "GameLightSync worker" };
     }
 
     public void Start()
@@ -476,7 +476,7 @@ internal sealed class Bridge : IDisposable
         if (_logiInitialized) return true;
         if (DateTime.UtcNow < _nextInitAttempt) return false;
 
-        if (!LogitechLed.LogiLedInitWithName("ChromaBridge"))
+        if (!LogitechLed.LogiLedInitWithName("GameLightSync"))
         {
             _nextInitAttempt = DateTime.UtcNow.AddSeconds(5);
             SetStatus("G HUB not reachable - is G HUB running?");

@@ -16,10 +16,10 @@
   "maxFps": 60,
 
   // "hidpp":           per-key directly over Logitech HID++ (recommended). Keep Windows Dynamic Lighting ON with
-  //                    ChromaBridge on top of "Background light control": while a game sends colors ChromaBridge
+  //                    GameLightSync on top of "Background light control": while a game sends colors GameLightSync
   //                    takes control (Windows' effect pauses), afterwards your normal lighting comes back.
-  // "dynamicLighting": per-key through Windows Dynamic Lighting (run tools\package\Install-ChromaBridge.ps1 once,
-  //                    then pick ChromaBridge under Settings > Personalization > Dynamic Lighting > Background light control)
+  // "dynamicLighting": per-key through Windows Dynamic Lighting (run tools\package\Install-GameLightSync.ps1 once,
+  //                    then pick GameLightSync under Settings > Personalization > Dynamic Lighting > Background light control)
   // "ghub":            Logitech LED SDK through G HUB (on the G915 X only a whole-keyboard color works)
   // The tray menu "Output" switches between them.
   "output": "hidpp",

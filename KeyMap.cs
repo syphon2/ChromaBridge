@@ -1,4 +1,4 @@
-namespace ChromaBridge;
+namespace GameLightSync;
 
 /// <summary>
 /// Maps the Razer Chroma keyboard grid (6 rows x 22 columns, key id 0xRRCC) onto the

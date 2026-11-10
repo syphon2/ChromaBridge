@@ -1,7 +1,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace ChromaBridge;
+namespace GameLightSync;
 
 internal sealed class BridgeConfig
 {
@@ -34,7 +34,7 @@ internal sealed class BridgeConfig
     /// <summary>
     /// With the HID++ output: take Windows Dynamic Lighting control while mirroring (without sending anything through
     /// it) so Windows' own effect pauses, and give it back when the game stops - your normal lighting returns.
-    /// Needs ChromaBridge on top of "Background light control".
+    /// Needs GameLightSync on top of "Background light control".
     /// </summary>
     public bool HoldDynamicLighting { get; set; } = true;
 

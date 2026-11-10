@@ -3,14 +3,14 @@ using System.Drawing.Drawing2D;
 using System.Runtime.InteropServices;
 using Microsoft.Win32;
 
-namespace ChromaBridge;
+namespace GameLightSync;
 
 internal static class Program
 {
     [STAThread]
     private static void Main(string[] args)
     {
-        using var mutex = new Mutex(true, @"Local\ChromaBridge.SingleInstance", out var isFirst);
+        using var mutex = new Mutex(true, @"Local\GameLightSync.SingleInstance", out var isFirst);
         if (!isFirst) return;
 
         if (args.Contains("--console")) AllocConsole();
@@ -33,7 +33,7 @@ internal static class Program
 internal sealed class TrayContext : ApplicationContext
 {
     private const string RunKey = @"Software\Microsoft\Windows\CurrentVersion\Run";
-    private const string RunValue = "ChromaBridge";
+    private const string RunValue = "GameLightSync";
 
     private readonly NotifyIcon _tray;
     private readonly Bridge _bridge;
@@ -45,7 +45,7 @@ internal sealed class TrayContext : ApplicationContext
     public TrayContext(bool showTestPattern)
     {
         _ui = SynchronizationContext.Current ?? new WindowsFormsSynchronizationContext();
-        Log.Write("ChromaBridge starting");
+        Log.Write("GameLightSync starting");
 
         _bridge = new Bridge(BridgeConfig.Load());
 
@@ -83,7 +83,7 @@ internal sealed class TrayContext : ApplicationContext
         menu.Items.Add(new ToolStripSeparator());
         menu.Items.Add("Exit", null, (_, _) => ExitThread());
 
-        _tray = new NotifyIcon { Icon = _iconIdle, Text = "ChromaBridge", ContextMenuStrip = menu, Visible = true };
+        _tray = new NotifyIcon { Icon = _iconIdle, Text = "GameLightSync", ContextMenuStrip = menu, Visible = true };
         _tray.DoubleClick += (_, _) => ShowPreview();
 
         _bridge.StatusChanged += s => _ui.Post(_ => UpdateStatus(s), null);
@@ -96,7 +96,7 @@ internal sealed class TrayContext : ApplicationContext
     private void UpdateStatus(string status)
     {
         _statusItem.Text = status;
-        _tray.Text = ("ChromaBridge - " + status) is var t && t.Length > 63 ? t[..63] : t;
+        _tray.Text = ("GameLightSync - " + status) is var t && t.Length > 63 ? t[..63] : t;
         _tray.Icon = status.StartsWith("Mirroring") || status.StartsWith("Showing") ? _iconActive : _iconIdle;
     }
 
@@ -144,9 +144,9 @@ internal sealed class TrayContext : ApplicationContext
         };
     }
 
-    // Autostart uses a scheduled task "at logon": Windows skips Run-key entries for ChromaBridge.exe because the exe
+    // Autostart uses a scheduled task "at logon": Windows skips Run-key entries for GameLightSync.exe because the exe
     // has package identity (the sparse package for Dynamic Lighting), so the Run key never started it.
-    private const string TaskName = "ChromaBridge";
+    private const string TaskName = "GameLightSync";
 
     private static bool IsAutostart() => Run("schtasks.exe", $"/Query /TN {TaskName}") == 0;
 
@@ -212,7 +212,7 @@ internal sealed class TrayContext : ApplicationContext
         _configWatcher?.Dispose();
         _tray.Visible = false;
         _bridge.Dispose();
-        Log.Write("ChromaBridge stopped");
+        Log.Write("GameLightSync stopped");
         base.ExitThreadCore();
     }
 }

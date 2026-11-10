@@ -48,7 +48,7 @@ var phases = new (string Expect, Action Apply)[]
             foreach (var k in wasd) Sdk.LogiLedSetLightingForKeyWithScanCode(k, 100, 100, 100);
         }),
 
-    ("GREEN keyboard with W A S D WHITE (per-key by name, target PER-KEY only = old ChromaBridge)", () =>
+    ("GREEN keyboard with W A S D WHITE (per-key by name, target PER-KEY only = old GameLightSync)", () =>
         {
             Sdk.LogiLedSetTargetDevice(PERKEY);
             foreach (var k in allKeys) Sdk.LogiLedSetLightingForKeyWithKeyName(k, 0, 100, 0);
@@ -59,14 +59,14 @@ var phases = new (string Expect, Action Apply)[]
         { Sdk.LogiLedSetTargetDevice(RGB); Sdk.LogiLedSetLightingFromBitmap(RowsBitmap()); }),
 };
 
-Console.WriteLine("Logitech G HUB lighting test. Close ChromaBridge first (tray -> Exit).");
+Console.WriteLine("Logitech G HUB lighting test. Close GameLightSync first (tray -> Exit).");
 Console.WriteLine("Look at your keyboard after each step and answer y (yes) / n (no) / or describe what you see.\n");
-if (System.Diagnostics.Process.GetProcessesByName("ChromaBridge").Length > 0)
+if (System.Diagnostics.Process.GetProcessesByName("GameLightSync").Length > 0)
 {
-    Console.WriteLine("ChromaBridge is still running - please exit it from the tray, then press Enter.");
+    Console.WriteLine("GameLightSync is still running - please exit it from the tray, then press Enter.");
     Console.ReadLine();
 }
-if (!Sdk.LogiLedInitWithName("ChromaBridge LogiTest")) { Console.WriteLine("Could not connect to G HUB."); Console.ReadLine(); return; }
+if (!Sdk.LogiLedInitWithName("GameLightSync LogiTest")) { Console.WriteLine("Could not connect to G HUB."); Console.ReadLine(); return; }
 Thread.Sleep(500);
 
 var results = new List<string>();
@@ -84,7 +84,7 @@ Sdk.LogiLedShutdown();
 
 var file = Path.Combine(AppContext.BaseDirectory, "logitest-results.txt");
 File.WriteAllLines(file, results);
-Console.WriteLine($"\nDone, results saved to {file}. You can restart ChromaBridge now. Press Enter to close.");
+Console.WriteLine($"\nDone, results saved to {file}. You can restart GameLightSync now. Press Enter to close.");
 Console.ReadLine();
 
 static class Sdk

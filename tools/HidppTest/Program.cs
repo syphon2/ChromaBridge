@@ -1,7 +1,7 @@
 // HID++ probe for the G915 X. "list" is read-only: finds the keyboard, prints its features and measures latency.
 // "anim" drives the keyboard directly via feature 0x8081 with game-like animations (visual test, asks for feedback).
 using System.Diagnostics;
-using ChromaBridge;
+using GameLightSync;
 
 var mode = args.Length > 0 ? args[0] : "anim";
 if (mode == "anim") { AnimTest.Run(); return; }

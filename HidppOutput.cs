@@ -1,6 +1,6 @@
 using RazerSdkReader.Structures;
 
-namespace ChromaBridge;
+namespace GameLightSync;
 
 /// <summary>
 /// Drives the keyboard directly over HID++ 2.0 (feature 0x8081 per-key lighting, 0x8071 software control), next to G HUB.
@@ -296,7 +296,7 @@ internal sealed class HidppOutput : IFrameOutput
             {
                 var current = dev.RequestWithError(_effects, 5, [0]).Data;
                 (byte Mode, byte Flags) mode = current == null ? LogitechServiceMode : (current[1], current[2]);
-                // mode 0 (left by an older ChromaBridge) or our own flags 5 (crash during a game): use the service mode
+                // mode 0 (left by an older GameLightSync) or our own flags 5 (crash during a game): use the service mode
                 if (mode.Mode == 0 || mode.Flags == 5) mode = LogitechServiceMode;
                 _saved = mode;
                 WriteStateFile(mode.Mode, mode.Flags, claimed: true);

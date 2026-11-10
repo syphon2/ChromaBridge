@@ -1,4 +1,4 @@
-namespace ChromaBridge;
+namespace GameLightSync;
 
 internal static class Log
 {

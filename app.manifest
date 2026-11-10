@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <assembly manifestVersion="1.0" xmlns="urn:schemas-microsoft-com:asm.v1">
-  <assemblyIdentity version="1.0.0.0" name="ChromaBridge.app" />
+  <assemblyIdentity version="1.0.0.0" name="GameLightSync.app" />
 
-  <!-- Gives ChromaBridge.exe the identity of the "ChromaBridge" sparse package (see tools\package).
+  <!-- Gives GameLightSync.exe the identity of the "GameLightSync" sparse package (see tools\package).
        Windows requires package identity for apps that control Dynamic Lighting in the background. -->
   <msix xmlns="urn:schemas-microsoft-com:msix.v1"
-        publisher="CN=ChromaBridge Local"
-        packageName="ChromaBridge"
-        applicationId="ChromaBridge" />
+        publisher="CN=GameLightSync Local"
+        packageName="GameLightSync"
+        applicationId="GameLightSync" />
 
   <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
     <application>

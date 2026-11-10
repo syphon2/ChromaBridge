@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Sparse package: gives ChromaBridge.exe (installed outside the package) an app identity so Windows
+<!-- Sparse package: gives GameLightSync.exe (installed outside the package) an app identity so Windows
      lets it control Dynamic Lighting devices in the background. -->
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
@@ -9,11 +9,11 @@
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap uap3 uap10 rescap">
 
-  <Identity Name="ChromaBridge" Publisher="CN=ChromaBridge Local" Version="1.0.0.0" ProcessorArchitecture="x64" />
+  <Identity Name="GameLightSync" Publisher="CN=GameLightSync Local" Version="1.0.0.0" ProcessorArchitecture="x64" />
 
   <Properties>
-    <DisplayName>ChromaBridge</DisplayName>
-    <PublisherDisplayName>ChromaBridge</PublisherDisplayName>
+    <DisplayName>GameLightSync</DisplayName>
+    <PublisherDisplayName>GameLightSync</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
     <uap10:AllowExternalContent>true</uap10:AllowExternalContent>
   </Properties>
@@ -32,14 +32,14 @@
   </Capabilities>
 
   <Applications>
-    <Application Id="ChromaBridge" Executable="ChromaBridge.exe"
+    <Application Id="GameLightSync" Executable="GameLightSync.exe"
                  uap10:TrustLevel="mediumIL" uap10:RuntimeBehavior="win32App">
-      <uap:VisualElements DisplayName="ChromaBridge" Description="Razer Chroma game lighting on Dynamic Lighting keyboards"
+      <uap:VisualElements DisplayName="GameLightSync" Description="Razer Chroma game lighting on Dynamic Lighting keyboards"
                           BackgroundColor="transparent" Square150x150Logo="Assets\Square150x150Logo.png"
                           Square44x44Logo="Assets\Square44x44Logo.png" AppListEntry="none" />
       <Extensions>
         <uap3:Extension Category="windows.appExtension">
-          <uap3:AppExtension Name="com.microsoft.windows.lighting" Id="ChromaBridge" DisplayName="ChromaBridge" PublicFolder="Public" />
+          <uap3:AppExtension Name="com.microsoft.windows.lighting" Id="GameLightSync" DisplayName="GameLightSync" PublicFolder="Public" />
         </uap3:Extension>
       </Extensions>
     </Application>

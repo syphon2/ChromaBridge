@@ -2,7 +2,7 @@ using System.ComponentModel;
 using System.Runtime.InteropServices;
 using Microsoft.Win32.SafeHandles;
 
-namespace ChromaBridge;
+namespace GameLightSync;
 
 /// <summary>
 /// Minimal Logitech HID++ 2.0 client over the vendor-defined "long report" HID collection (report id 0x11, 20 bytes).

@@ -1,5 +1,5 @@
 using System.Runtime.InteropServices;
-using ChromaBridge;
+using GameLightSync;
 
 /// <summary>Step-by-step check of which 0x8081 message formats the G915 X really applies.</summary>
 internal static class KeyDiag
@@ -15,7 +15,7 @@ internal static class KeyDiag
     public static void Run()
     {
         timeBeginPeriod(1);
-        Console.WriteLine("G915 X per-key message check (Dynamic Lighting must still be OFF, ChromaBridge closed)");
+        Console.WriteLine("G915 X per-key message check (Dynamic Lighting must still be OFF, GameLightSync closed)");
         Console.Write("Press Enter to start... ");
         Console.ReadLine();
 

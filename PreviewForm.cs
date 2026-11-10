@@ -1,6 +1,6 @@
-namespace ChromaBridge;
+namespace GameLightSync;
 
-/// <summary>Live view of what the game sends to Razer (top) and what ChromaBridge sends to G HUB (bottom).</summary>
+/// <summary>Live view of what the game sends to Razer (top) and what GameLightSync sends to G HUB (bottom).</summary>
 internal sealed class PreviewForm : Form
 {
     private const int Cell = 30, Gap = 3, Pad = 14, LabelHeight = 22;
@@ -10,7 +10,7 @@ internal sealed class PreviewForm : Form
     public PreviewForm(Bridge bridge)
     {
         _bridge = bridge;
-        Text = "ChromaBridge - live preview";
+        Text = "GameLightSync - live preview";
         BackColor = Color.FromArgb(24, 24, 24);
         ForeColor = Color.Gainsboro;
         Font = new Font("Segoe UI", 9f);

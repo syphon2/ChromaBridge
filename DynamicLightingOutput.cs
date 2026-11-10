@@ -6,7 +6,7 @@ using Windows.Devices.Lights;
 using Windows.System;
 using WinColor = Windows.UI.Color;
 
-namespace ChromaBridge;
+namespace GameLightSync;
 
 /// <summary>
 /// Drives Windows Dynamic Lighting (HID LampArray) keyboards, e.g. the G915 X exposed by Logitech's LampArray service.
@@ -127,7 +127,7 @@ internal sealed class DynamicLightingOutput : IFrameOutput
             var unavailable = _devices.Values.Count(d => !IsAvailable(d.Lamps));
             return unavailable == 0
                 ? $"{_devices.Count} device(s)"
-                : "not in control - select ChromaBridge under Background light control";
+                : "not in control - select GameLightSync under Background light control";
         }
     }
 

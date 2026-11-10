@@ -1,5 +1,5 @@
 using System.Diagnostics;
-using ChromaBridge;
+using GameLightSync;
 
 /// <summary>Visual test: game-like animations sent straight to the G915 X over HID++ (0x8081) with atomic commits.</summary>
 internal static class AnimTest
@@ -30,7 +30,7 @@ internal static class AnimTest
         Console.WriteLine("Before starting:");
         Console.WriteLine("  1. Settings > Personalization > Dynamic Lighting: turn OFF 'Use Dynamic Lighting on my devices'");
         Console.WriteLine("     (otherwise Windows and this test write to the keyboard at the same time)");
-        Console.WriteLine("  2. ChromaBridge tray icon: uncheck 'Enabled'");
+        Console.WriteLine("  2. GameLightSync tray icon: uncheck 'Enabled'");
         Console.Write("\nPress Enter when ready... ");
         Console.ReadLine();
 
@@ -63,7 +63,7 @@ internal static class AnimTest
         var file = Path.Combine(AppContext.BaseDirectory, "hidpp-results.txt");
         File.WriteAllLines(file, results);
         Console.WriteLine($"\nResults saved to {file}");
-        Console.WriteLine("Turn Dynamic Lighting back ON and re-enable ChromaBridge. Press Enter to close.");
+        Console.WriteLine("Turn Dynamic Lighting back ON and re-enable GameLightSync. Press Enter to close.");
         Console.ReadLine();
     }
 

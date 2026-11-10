@@ -1,4 +1,4 @@
-namespace ChromaBridge;
+namespace GameLightSync;
 
 /// <summary>
 /// Passive monitor of the keyboard's HID++ traffic. It only listens (no requests after the initial feature lookup,
